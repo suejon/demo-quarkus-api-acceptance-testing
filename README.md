@@ -1,3 +1,5 @@
+![coverage](.github/badges/jacoco.svg)
+
 # demo-api Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
