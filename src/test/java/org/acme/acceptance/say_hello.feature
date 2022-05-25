@@ -6,5 +6,5 @@ Feature: Say Hello
     Scenario: Hello
         Given user is available
         When user says "hello"
-        Then the response should be "Hello from RESTEasy Reactive"
+        Then the response should be "Hello back"
 

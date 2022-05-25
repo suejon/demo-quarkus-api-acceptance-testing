@@ -26,7 +26,7 @@ public class StepDefinitions {
     public void response_should_be_hello(String expectedResponse) {
         // logic for calling the hello endpoint
         // assertEquals(expectedResponse, actualResponse);
-        assertEquals(expectedResponse, "Hello from RESTEasy Reactive");
+        assertEquals(expectedResponse, "Hello back");
     }
     
 }
