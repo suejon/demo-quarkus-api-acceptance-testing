@@ -19,6 +19,11 @@ jobs:
       #   if: always()
       #   with:
       #     files: "target/jacoco-report/jacoco.xml"
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: target/jacoco-report/jacoco.csv
   Build:
     needs: Validate
     runs-on: ubuntu-latest
