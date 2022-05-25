@@ -14,11 +14,11 @@ jobs:
         if: always()
         with:
           files: "target/surefire-reports/*.xml"
-      - name: Publish Test Coverage Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
-        if: always()
-        with:
-          files: "target/jacoco-report/jacoco.xml"
+      # - name: Publish Test Coverage Results
+      #   uses: EnricoMi/publish-unit-test-result-action@v1
+      #   if: always()
+      #   with:
+      #     files: "target/jacoco-report/jacoco.xml"
   Build:
     needs: Validate
     runs-on: ubuntu-latest
