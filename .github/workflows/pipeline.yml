@@ -1,0 +1,36 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Validate:
+    runs-on: ubuntu-latest
+    container:
+      image: maven:3.8.5-openjdk-11
+    steps:
+      - name: Run tests
+        run: mvn test
+      - name: Publish JUnit Tests
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          junit_files: "target/surefire-reports/*.xml"
+      - name: Publish Test Coverage Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          junit_files: "target/jacoco-report/jacoco.xml"
+  Build:
+    runs-on: ubuntu-latest
+    container:
+      image: maven:3.8.5-openjdk-11
+    steps:
+      - name: packaing java application
+        run: mvn package
+      - name: archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployable.jar
+          path: target/*.jar
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running deploy"
