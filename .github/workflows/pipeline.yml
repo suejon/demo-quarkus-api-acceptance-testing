@@ -13,12 +13,12 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-          junit_files: "target/surefire-reports/*.xml"
+          files: "target/surefire-reports/*.xml"
       - name: Publish Test Coverage Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-          junit_files: "target/jacoco-report/jacoco.xml"
+          files: "target/jacoco-report/jacoco.xml"
   Build:
     needs: Validate
     runs-on: ubuntu-latest
